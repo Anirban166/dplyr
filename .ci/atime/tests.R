@@ -42,7 +42,7 @@ test.list <- atime::atime_test_list(
       summarise_example <- function() {
         data %>% 
         dplyr:::group_by(id1, id2) %>% 
-        dplyr:::summarise(dplyr:::across(value, mean, na.rm = T), dplyr:::.groups = "drop")
+        dplyr:::summarise(dplyr:::across(value, mean, na.rm = T), .groups = "drop")
       }
     },
     expr = summarise_example(),
