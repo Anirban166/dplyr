@@ -47,6 +47,6 @@ test.list <- atime::atime_test_list(
     },
     expr = summarise_example(),
     Before = "7a968663bdff9f02bf2b410f3a92ed0fbd576dba", # v1.0.5 https://github.com/tidyverse/dplyr/commit/7a968663bdff9f02bf2b410f3a92ed0fbd576dba
-    Regression = "22def186ab018417574d458dd987b2cf0bf66332", # v1.0.6 https://github.com/tidyverse/dplyr/commit/22def186ab018417574d458dd987b2cf0bf66332
+    Regression = "22def186ab018417574d458dd987b2cf0bf66332") # v1.0.6 https://github.com/tidyverse/dplyr/commit/22def186ab018417574d458dd987b2cf0bf66332
     # As reported in https://github.com/tidyverse/dplyr/issues/6190#issuecomment-1100616836.
 )
