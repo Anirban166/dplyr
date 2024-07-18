@@ -35,17 +35,12 @@ test.list <- atime::atime_test_list(
   "." = atime::atime_test(
     N = 10^seq(3, 8),
     setup = {
-      data <- dplyr:::tibble(id1 = 1:100) %>% 
-              dplyr:::crossing(id2 = 1:100) %>% 
-              dplyr:::crossing(obs = 1:2) %>% 
-              dplyr:::mutate(value = runif(n()))
-      summarise_example <- function() {
-        data %>% 
-        dplyr:::group_by(id1, id2) %>% 
-        dplyr:::summarise(dplyr:::across(value, mean, na.rm = T), .groups = "drop")
-      }
+      data <- tibble(id1 = 1:100) %>% 
+              crossing(id2 = 1:100) %>% 
+              crossing(obs = 1:2) %>% 
+              mutate(value = runif(n()))
     },
-    expr = summarise_example(),
+    expr = data %>% dplyr:::group_by(id1, id2) %>% dplyr:::summarise(dplyr:::across(value, mean, na.rm = T), .groups = "drop"),
     Before = "7a968663bdff9f02bf2b410f3a92ed0fbd576dba", # v1.0.5 https://github.com/tidyverse/dplyr/commit/7a968663bdff9f02bf2b410f3a92ed0fbd576dba
     Regression = "22def186ab018417574d458dd987b2cf0bf66332") # v1.0.6 https://github.com/tidyverse/dplyr/commit/22def186ab018417574d458dd987b2cf0bf66332
     # As reported in https://github.com/tidyverse/dplyr/issues/6190#issuecomment-1100616836.
